@@ -1,8 +1,8 @@
 var express = require ('express');
-var expressHandlebars = require ('express-handlebars');
+var expressHandlebars = require ('express-handlebars'); //handlebars is used for TEMPLATING //main power of TEMPLATING is that you have the structure, such as title, header, body, etc. and have that structure dynamically populated with what you want, if not, then you would have to hard-code all of them for every page 
 var app = express();
 var PORT = process.env.NODE_ENV || 7070;
-var lineage = {
+var lineage = { //this an object, more specifically a nested object
     lannister: {
         house: 'House Lannister',
         parents: {
@@ -42,9 +42,9 @@ app.listen(PORT, function(){
   console.log('listening on port %s', PORT);
 });
 
-app.engine('handlebars', expressHandlebars({defaultLayout: 'main'}));
+app.engine('handlebars', expressHandlebars({defaultLayout: 'main'})); // this tells our app to run handlebars
 app.set('view engine', 'handlebars');
 
-app.get('/', function(req, res){
-  res.render('gameofthrones', lineage.stark);
+app.get('/', function(req, res){// app.get is the request from the browser, and the server figures this out and figures out the response, this routes to home page; get is the verb (this could be get, post, etc.) this is the file path, this is the routing, req res is a callback
+  res.render('gameofthrones', lineage.stark);//res = response or result of the server to the browser, render means what template we want to use, in this case, gameofthrones
 });
