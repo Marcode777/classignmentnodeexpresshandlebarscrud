@@ -46,5 +46,5 @@ app.engine('handlebars', expressHandlebars({defaultLayout: 'main'})); // this te
 app.set('view engine', 'handlebars');
 
 app.get('/', function(req, res){// app.get is the request from the browser, and the server figures this out and figures out the response, this routes to home page; get is the verb (this could be get, post, etc.) this is the file path, this is the routing, req res is a callback
-  res.render('gameofthrones', lineage.stark);//res = response or result of the server to the browser, render means what template we want to use, in this case, gameofthrones
+  res.render('index', lineage.stark);//res = response or result of the server to the browser, render means what template we want to use, in this case, gameofthrones
 });
